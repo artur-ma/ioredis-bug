@@ -1,0 +1,8 @@
+FROM node:14-alpine
+
+ADD ./je.test.js .
+ADD package.json .
+RUN npm i
+RUN ["npm", "i", "ioredis@4.27.10"]
+
+CMD ["./node_modules/jest/bin/jest.js", "je.test.js"]
